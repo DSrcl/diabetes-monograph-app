@@ -11,4 +11,4 @@ if __name__=='__main__':
     print auth_url
     r = client.request_access_token('c0c7a27ba1914193c22066f85bfebc36') #返回的CODE
     client.set_access_token(r.access_token, r.expires_in)
-    print client.get.user__home()  #获取点点首页 动态
+    print client.get.user__home()
