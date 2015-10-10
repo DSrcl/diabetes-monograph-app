@@ -1,5 +1,4 @@
 import requests
-
 import json
 import urllib2
 import urllib
@@ -26,7 +25,9 @@ def get_authcode(SNPS):
         print 'error'
         return None
     else:
-        code = requests.get("http://123.56.40.56:8080/LoveXY/servlet/FetchToken")
+        code = requests.get("http://123.56.40.56:8080/LoveXY/servlet/FetchToken").text
+        code = json.loads(code)
+        code = code["data"]
         return code
 
 
@@ -58,7 +59,7 @@ def get_genetype(access_token,SNPS):
         return genotype_response.json()
     else:
         reponse_text = genotype_response.text
-        response.raise_for_status()
+        return None
 
 
-print get_token():
+
